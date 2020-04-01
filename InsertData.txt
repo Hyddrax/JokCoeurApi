@@ -1,0 +1,15 @@
+INSERT INTO users (
+user_email,
+user_password, 
+user_name, 
+user_lastname, 
+user_age, 
+user_profession
+) VALUES (
+'test2@test.fr', 
+'pass', 
+'name2', 
+'lastName2', 
+17, 
+'pro'
+);

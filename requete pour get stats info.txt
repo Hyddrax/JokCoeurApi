@@ -1,0 +1,30 @@
+SELECT
+ emotstats.id,
+ emot1.lib AS 'Lib1',
+ emot1.color AS 'Color1',
+ emotstats.emotValue1 AS 'Value1',
+ emot2.lib AS 'Lib2',
+ emot2.color AS 'Colo2',
+ emotstats.emotValue2 AS 'Value2',
+ emot3.lib AS 'Lib3',
+ emot3.color AS 'Color3',
+ emotstats.emotValue3 AS 'Value3',
+ emot4.lib AS 'Lib4',
+ emot4.color AS 'Color4',
+ emotstats.emotValue4 AS 'Value4'
+FROM
+ emotstats
+
+INNER JOIN emots AS emot1 ON emot1.id = emotstats.emotId1
+INNER JOIN emots AS emot2 ON emot2.id = emotstats.emotId2
+INNER JOIN emots AS emot3 ON emot3.id = emotstats.emotId3
+INNER JOIN emots AS emot4 ON emot4.id = emotstats.emotId4
+ 
+WHERE
+	emotstats.userId = 1
+    AND 
+    (
+        EmotStats.createdAt < '2021-05-05 00:00:00' 
+        AND 
+        EmotStats.createdAt > '2019-05-26 00:00:00'
+    )

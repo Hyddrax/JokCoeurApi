@@ -17,6 +17,18 @@ module.exports = {
         })
     },
 
+    createMultiple(req, res) {
+        console.log(req.body);
+
+        return EmotStats.bulkCreate(
+            req.body
+        ).then(stats => {
+            res.status(201).send(stats);
+        }).catch(error => {
+            res.status(400).send(error)
+        })
+    },
+
     getStats(req, res) {
         return EmotStats.findAll().then(stats => {
             res.status(201).send(stats);
